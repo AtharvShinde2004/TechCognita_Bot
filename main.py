@@ -48,6 +48,10 @@ class MyBot(commands.Bot):
         Guilds: {len(self.guilds)}
         Users: {len(self.users)}"""
         )
+        
+    async def logout(self):
+        print("Logging out...")
+        await super().logout()
 
 
     async def on_command_error(self, ctx, error):
