@@ -17,22 +17,20 @@ class General(commands.Cog):
                 return
 
             em = discord.Embed(color=discord.Colour.dark_theme())
-            em.set_author(
-                name=f"{command.name} command", icon_url=ctx.me.display_avatar.url )
+            em.set_author(name=f"{command.name} command", icon_url=ctx.me.display_avatar.url )
             em.add_field(
                 name="**Instructions**",
                 value=">>> Required: `<>`\nOptional: `[]`\nDo not type this when using commands.",
                 inline=False,)
-            em.add_field(
-                name="**Usage**", value=f"> `{ctx.prefix}{command.usage}`", inline=False)
+            em.add_field(name="**Usage**", value=f"> `{ctx.prefix}{command.usage}`", inline=False)
             em.add_field(
                 name="**Aliases**",
                 value=f"> `{', '.join(command.aliases) or 'None'}`",
                 inline=False,)
-            em.add_field(
-                name="**Description**", value=f"> `{command.description}`", inline=False)
+            em.add_field(name="**Description**", value=f"> `{command.description}`", inline=False)
             em.set_footer(text=f"Requested by {ctx.author}.")
             await ctx.send(embed=em)
+            
         else:
             # em = discord.Embed(description = "Hey there! I am TechCognita Manager, My Prefix is `!!`,\n Thanks for adding me in your server.", color = ctx.author.color)
             # em.set_author(name = ctx.author.display_name, icon_url = ctx.author.display_avatar.url)
@@ -63,7 +61,7 @@ class General(commands.Cog):
                         value=", ".join([f"`{cmd.name}`" for cmd in cog_commands]),
                         inline=False,
                     )
-
+                    
             em.set_footer(
                 text="Use `!!invite` to add me in Your server",
                 icon_url=ctx.author.display_avatar.url,

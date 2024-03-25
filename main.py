@@ -26,7 +26,7 @@ class MyBot(commands.Bot):
             strip_after_prefix=True,
             case_insensitive=True,
             help_command=None,
-            owner_ids=[554213683102744576],
+            owner_ids=[554213683102744576,1096379840011190272],
             status=discord.Status.dnd,
             activity=discord.Activity(
                 type=discord.ActivityType.listening, name="!!help"
@@ -34,27 +34,26 @@ class MyBot(commands.Bot):
         )
 
 
-async def setup_hook(self):
-    for file in EXTENSIONS:
-        await self.load_extension(file)
-        print(file, "activated!")
-    await self.tree.sync()
+    async def setup_hook(self):
+        for file in EXTENSIONS:
+            await self.load_extension(file)
+            print(file, "activated!")
+        await self.tree.sync()
 
 
-async def on_ready(self):
-    print(
-        f"""Logged in as: {self.user}
-    ID: {self.user.id}
-    Guilds: {len(self.guilds)}
-    Users: {len(self.users)}"""
-    )
+    async def on_ready(self):
+        print(
+            f"""Logged in as: {self.user}
+        ID: {self.user.id}
+        Guilds: {len(self.guilds)}
+        Users: {len(self.users)}"""
+        )
 
 
-async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.CheckFailure):
-            await ctx.send("You don't have permission to use this command.")
+    async def on_command_error(self, ctx, error):
+            if isinstance(error, commands.CheckFailure):
+                await ctx.send("You don't have permission to use this command.")
 
 
 client = MyBot()
-client.load_extension("cogs.owner")
 client.run(Token)
