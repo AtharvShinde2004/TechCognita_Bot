@@ -28,7 +28,6 @@ class Owner(commands.Cog):
 		"""Shut down the bot."""
 		await ctx.send("Shutting down...")
 		await ctx.send("Guys me ja rha hu byyy..............")
-		print("Bot shutting down.")
 		await self.client.logout()
 		# await self.client.close()  
     
