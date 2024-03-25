@@ -50,5 +50,11 @@ async def on_ready(self):
     )
 
 
+async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.CheckFailure):
+            await ctx.send("You don't have permission to use this command.")
+
+
 client = MyBot()
+client.load_extension("cogs.owner")
 client.run(Token)
