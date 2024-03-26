@@ -57,7 +57,7 @@ TechCognita Discord Bot is a versatile bot designed to enhance your Discord serv
 ## Contributors
 
 - [Atharv Shinde](https://github.com/Atharvshinde2004)
-- [Akshad Jogi](https://github.com/contributor1)
+- [Akshad Jogi](https://github.com/akshadjogi)
 
 ## License
 
