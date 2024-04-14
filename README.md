@@ -19,7 +19,7 @@ TechCognita Discord Bot is a versatile bot designed to enhance your Discord serv
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/TechCognita-Bot.git
+   git clone https://github.com/Atharvshinde2004/TechCognita-Bot.git
    cd TechCognita-Bot
    ```
 
@@ -56,9 +56,8 @@ TechCognita Discord Bot is a versatile bot designed to enhance your Discord serv
 
 ## Contributors
 
-- [Your Name](https://github.com/yourusername)
-- [Contributor 1](https://github.com/contributor1)
-- [Contributor 2](https://github.com/contributor2)
+- [Atharv Shinde](https://github.com/Atharvshinde2004)
+- [Akshad Jogi](https://github.com/akshadjogi)
 
 ## License
 
