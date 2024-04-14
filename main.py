@@ -56,14 +56,11 @@ class MyBot(commands.Bot):
 
         await self.process_commands(message) 
 
-
-
     async def setup_hook(self):
         for file in EXTENSIONS:
             await client.load_extension(file)
             print(file, "activated!")
         # await self.tree.sync()
-
 
     async def on_ready(self):
         print(
@@ -72,11 +69,6 @@ class MyBot(commands.Bot):
         Guilds: {len(client.guilds)}
         Users: {len(client.users)}"""
         )
-
-
-            
-
-
 
     # async def on_command_error(self, ctx, error):
     #     if isinstance(error, commands.CheckFailure):
