@@ -15,6 +15,7 @@ EXTENSIONS = [
     "cogs.General",
     "cogs.tech_news",
     "cogs.utility",
+    "cogs.Programming",
 ]
 
 
