@@ -15,7 +15,7 @@ class Tools(commands.Cog):
 		await ctx.send(embed=embed)
 		
 
-	@commands.command(name="Members Count", description="Displays a Members Count.", aliases=["mc", "members", "memberscount"], usage="!!mc or !!members or !!memberscount")
+	@commands.command(name="Members_count", description="Displays a Members Count.", aliases=["mc", "members", "memberscount"], usage="!!mc or !!members or !!memberscount")
 	async def membercount(self, ctx):
 		memb = ctx.guild.member_count 
 

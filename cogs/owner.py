@@ -49,7 +49,8 @@ class Owner(commands.Cog):
 					await ctx.send(f"Failed to reload cog `{extension}`: {e}")
 		else:
 			try:
-				await self.client.reload_extension(cog)
+				# await self.client.reload_extension(cog)
+				await self.client.reload_extension(f"cogs.{cog}")
 				await ctx.send(f"Cog `{cog}` reloaded successfully.")
 			except commands.ExtensionError as e:
 				await ctx.send(f"Failed to reload cog `{cog}`: {e}")

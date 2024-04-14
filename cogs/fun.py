@@ -3,13 +3,15 @@ from discord.ext import commands
 import json
 import requests
 import random
+from typing import Literal
+
 
 class Fun(commands.Cog):
 	def __init__(self, client):
 		self.client = client
 	
 	
-	@commands.command(name="coinflip", description="Flips a coin.", aliases=["cf"], usage="!!cf [Heads or Tails] or !!coinflip [Heads or Tails]")
+	@commands.command(name="coinflip", description="Flips a coin.", aliases=["cf"], usage="!!cf [Heads or Tails] or !!coinflip [Heads or Tails]", slash_command=True)
 	async def coinflip(self, ctx):
 		outcomes = ["Heads!", "Tails!"]
 		result = random.choice(outcomes)
@@ -47,7 +49,7 @@ class Fun(commands.Cog):
 		embed.set_footer(text=f"Information requested by: {ctx.author}")
 		await ctx.send(embed=embed)
 
-	@commands.command(name="quote", description="Sends a random quote", usage="!!qoute")
+	@commands.hybrid_command(name="quote", description="Sends a random quote", usage="qoute")
 	async def quote(self, ctx):
 		url = 'https://api.quotable.io/random'
 		response = requests.get(url)
@@ -59,6 +61,29 @@ class Fun(commands.Cog):
 		embed.add_field(name=f'- {author}', value="", inline=True)
 		embed.set_footer(text=f"Information requested by: {ctx.author}")
 		await ctx.send(embed=embed)
-	
+  
+	@commands.hybrid_command(name='8ball', aliases=['eight-ball'])
+	async def eight_ball(self, ctx: commands.Context, *, question: str):
+		"""Answers for your question."""
+		answers = ['absolutely', 'yes', 'no', 'do not', 'surely', 'clueless']
+		embed = discord.Embed(
+			description=f"**Asked:** {question}\nMy honest opinion to this information: {random.choice(answers)}",
+			color=discord.Color.random()
+		)
+		await ctx.send(embed=embed)
+
+	@commands.hybrid_command(name='rock-paper-scissor', aliases=['rps'])
+	async def rock_paper_scissor(self, ctx: commands.Context, *, item: Literal['rock', 'paper', 'scissor']):
+		"""Play rock paper scissor."""
+		answers = {'rock': 'paper', 'paper': 'scissor', 'scissor': 'rock'}
+		choice = random.choice(list(answers))
+		response = "I choose '{}'. {}"
+		result = "It's a draw."
+		if choice != item:
+			result = "You win!" if answers[choice] == item else "You lost!"
+
+		await ctx.send(response.format(choice, result))
+  
+
 async def setup(client):
 	await client.add_cog(Fun(client))
